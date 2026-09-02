@@ -11,6 +11,7 @@ $reportDirectory = Join-Path $repositoryRoot 'reports'
 $localDirectory = Join-Path $repositoryRoot '.local'
 $publicReportPath = Join-Path $reportDirectory 'repository-status.md'
 $privateReportPath = Join-Path $localDirectory 'private-repository-status.md'
+$findingStatePath = Join-Path $localDirectory 'finding-state.json'
 $today = Get-Date -Format 'yyyy-MM-dd'
 
 New-Item -ItemType Directory -Force -Path $reportDirectory, $localDirectory | Out-Null
@@ -167,6 +168,24 @@ $ownedStandaloneRows = @($ownedRows | Where-Object { -not $_.Fork -and -not $_.A
 $publicRows = @($ownedStandaloneRows | Where-Object { -not $_.Private })
 $privateRows = @($ownedStandaloneRows | Where-Object { $_.Private })
 $problemRows = @($ownedStandaloneRows | Where-Object { $_.Findings -notcontains '기본 점검 통과' })
+$currentFindingKeys = @(
+    $problemRows | ForEach-Object {
+        $name = $_.Name
+        $_.Findings | ForEach-Object { "$name|$_" }
+    } | Sort-Object -Unique
+)
+$previousFindingKeys = @()
+if (Test-Path -LiteralPath $findingStatePath) {
+    try {
+        $previousFindingKeys = @(Get-Content -LiteralPath $findingStatePath -Raw | ConvertFrom-Json)
+    }
+    catch {
+        $previousFindingKeys = @()
+    }
+}
+$newFindingKeys = @($currentFindingKeys | Where-Object { $_ -notin $previousFindingKeys })
+$resolvedFindingKeys = @($previousFindingKeys | Where-Object { $_ -notin $currentFindingKeys })
+$currentFindingKeys | ConvertTo-Json | Set-Content -LiteralPath $findingStatePath -Encoding utf8
 
 $publicLines = [System.Collections.Generic.List[string]]::new()
 $publicLines.Add('# GitHub 공개 저장소 상태')
@@ -196,6 +215,13 @@ $privateLines = [System.Collections.Generic.List[string]]::new()
 $privateLines.Add('# 비공개 및 공동작업 저장소 점검 결과')
 $privateLines.Add('')
 $privateLines.Add("점검일: $today (Asia/Seoul)")
+$privateLines.Add('')
+$privateLines.Add('## 이전 점검 대비')
+$privateLines.Add('')
+$privateLines.Add("- 새 문제/권장사항: $($newFindingKeys.Count)개")
+$privateLines.Add("- 해결됨: $($resolvedFindingKeys.Count)개")
+foreach ($finding in $newFindingKeys) { $privateLines.Add("- 신규: $finding") }
+foreach ($finding in $resolvedFindingKeys) { $privateLines.Add("- 해결: $finding") }
 $privateLines.Add('')
 $privateLines.Add('## 조치가 필요한 소유 저장소')
 $privateLines.Add('')
@@ -236,6 +262,8 @@ if (-not $NoPush) {
     Owned = $ownedRows.Count
     Audited = $ownedStandaloneRows.Count
     Problems = $problemRows.Count
+    NewProblems = $newFindingKeys.Count
+    Resolved = $resolvedFindingKeys.Count
     CollaboratorReadOnly = $collaboratorRows.Count
     PublicReport = $publicReportPath
     PrivateReport = $privateReportPath
