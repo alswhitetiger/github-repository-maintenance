@@ -41,10 +41,6 @@ function Invoke-GitHubGet {
 function Get-RepositoryRootNames {
     param([Parameter(Mandatory)]$Repository)
 
-    if ([int64]$Repository.size -eq 0) {
-        return @()
-    }
-
     $encodedBranch = [uri]::EscapeDataString([string]$Repository.default_branch)
     $uri = "https://api.github.com/repos/$($Repository.full_name)/contents?ref=$encodedBranch"
     try {
@@ -52,6 +48,9 @@ function Get-RepositoryRootNames {
         return @($items | ForEach-Object { [string]$_.name })
     }
     catch {
+        if ($_.Exception.Response.StatusCode.value__ -eq 409) {
+            return @('__EMPTY__')
+        }
         return @('__ROOT_CHECK_FAILED__')
     }
 }
@@ -65,11 +64,12 @@ function Get-Findings {
     $findings = [System.Collections.Generic.List[string]]::new()
     if ($Repository.archived) { $findings.Add('보관된 저장소') }
     if ($Repository.fork) { $findings.Add('포크 저장소: 잔디용 자동 커밋 제외') }
-    if ([int64]$Repository.size -eq 0) { $findings.Add('빈 저장소') }
+    $isEmpty = $RootNames -contains '__EMPTY__'
+    if ($isEmpty) { $findings.Add('빈 저장소') }
     if ($RootNames -contains '__ROOT_CHECK_FAILED__') { $findings.Add('루트 파일 확인 실패') }
 
     $isStandaloneOwned = -not $Repository.fork -and -not $Repository.archived
-    if ($isStandaloneOwned -and [int64]$Repository.size -gt 0) {
+    if ($isStandaloneOwned -and -not $isEmpty) {
         if (-not ($RootNames | Where-Object { $_ -match '^README(?:\.|$)' })) {
             $findings.Add('README 없음')
         }

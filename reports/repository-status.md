@@ -15,7 +15,7 @@
 | [AI-Storyteller-Text-Adventure](https://github.com/alswhitetiger/AI-Storyteller-Text-Adventure) | `main` | 2026-06-24 | .gitignore 없음; 공개 저장소 라이선스 없음 |
 | [Code-Horizon-team](https://github.com/alswhitetiger/Code-Horizon-team) | `main` | 2026-06-24 | README 없음; .gitignore 없음; 공개 저장소 라이선스 없음 |
 | [find_word_game](https://github.com/alswhitetiger/find_word_game) | `main` | 2026-06-24 | .gitignore 없음; 공개 저장소 라이선스 없음 |
-| [github-repository-maintenance](https://github.com/alswhitetiger/github-repository-maintenance) | `main` | 2026-09-02 | 빈 저장소 |
+| [github-repository-maintenance](https://github.com/alswhitetiger/github-repository-maintenance) | `main` | 2026-09-02 | README 없음; .gitignore 없음; 공개 저장소 라이선스 없음 |
 | [LLM-game](https://github.com/alswhitetiger/LLM-game) | `main` | 2026-06-24 | .gitignore 없음; 공개 저장소 라이선스 없음 |
 | [mingyun-portfolio](https://github.com/alswhitetiger/mingyun-portfolio) | `main` | 2026-07-03 | README 없음; .gitignore 없음; 공개 저장소 라이선스 없음 |
 | [My-Emotional-Analysis-Model](https://github.com/alswhitetiger/My-Emotional-Analysis-Model) | `main` | 2026-06-24 | .gitignore 없음; 공개 저장소 라이선스 없음 |
