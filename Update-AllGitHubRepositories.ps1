@@ -13,6 +13,7 @@ $publicReportPath = Join-Path $reportDirectory 'repository-status.md'
 $privateReportPath = Join-Path $localDirectory 'all-repositories-report.md'
 $statePath = Join-Path $localDirectory 'all-repositories-state.json'
 $reviewPath = 'REPOSITORY_REVIEW.md'
+$maintenanceReviewPath = Join-Path $workspaceRoot $reviewPath
 $maintenanceRepository = 'alswhitetiger/github-repository-maintenance'
 $today = Get-Date -Format 'yyyy-MM-dd'
 
@@ -255,8 +256,9 @@ foreach ($repository in ($repositories | Sort-Object full_name)) {
             $detail = "$reviewPath 갱신 및 기본 브랜치 커밋"
         }
         elseif ($name -eq $maintenanceRepository -and -not $DryRun) {
+            $reviewContent + "`n" | Set-Content -LiteralPath $maintenanceReviewPath -Encoding utf8
             $status = '최신화 완료'
-            $detail = '전체 저장소 요약 보고서로 갱신'
+            $detail = '저장소 검토 문서와 전체 요약 보고서로 갱신'
         }
 
         $results.Add([pscustomobject]@{
@@ -326,7 +328,7 @@ $state | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $statePath -Encoding
 if (-not $DryRun) {
     git -C $workspaceRoot config user.name ([string]$me.login)
     git -C $workspaceRoot config user.email "$($me.id)+$($me.login)@users.noreply.github.com"
-    git -C $workspaceRoot add -- 'reports/repository-status.md'
+    git -C $workspaceRoot add -- 'reports/repository-status.md' 'REPOSITORY_REVIEW.md'
     git -C $workspaceRoot diff --cached --quiet
     if ($LASTEXITCODE -ne 0) {
         git -C $workspaceRoot commit -m "docs: 전체 저장소 점검 $today [skip ci]"
