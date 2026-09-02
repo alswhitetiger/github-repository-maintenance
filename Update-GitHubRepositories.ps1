@@ -44,7 +44,7 @@ function Get-RepositoryRootNames {
     $encodedBranch = [uri]::EscapeDataString([string]$Repository.default_branch)
     $uri = "https://api.github.com/repos/$($Repository.full_name)/contents?ref=$encodedBranch"
     try {
-        $items = @(Invoke-GitHubGet -Uri $uri)
+        $items = Invoke-GitHubGet -Uri $uri
         return @($items | ForEach-Object { [string]$_.name })
     }
     catch {
@@ -141,7 +141,7 @@ function Update-KnownLocalRepositories {
 $me = Invoke-GitHubGet -Uri 'https://api.github.com/user'
 $repositories = [System.Collections.Generic.List[object]]::new()
 for ($page = 1; $page -le 10; $page++) {
-    $batch = @(Invoke-GitHubGet -Uri "https://api.github.com/user/repos?per_page=100&page=$page&affiliation=owner,collaborator&sort=full_name")
+    $batch = Invoke-GitHubGet -Uri "https://api.github.com/user/repos?per_page=100&page=$page&affiliation=owner,collaborator&sort=full_name"
     foreach ($repository in $batch) { $repositories.Add($repository) }
     if ($batch.Count -lt 100) { break }
 }
