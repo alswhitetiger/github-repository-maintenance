@@ -3,7 +3,7 @@
 점검일: 2026-09-02 (Asia/Seoul)
 
 - 본인 소유 저장소: 33개
-- 최신화 완료: 3개
+- 최신화 완료: 5개
 - 실패: 0개
 
 | 저장소 | 처리 결과 | 필요한 부분 | 추가 기능 제안 | 정리 후보 |
@@ -16,7 +16,7 @@
 | [find_word_game](https://github.com/alswhitetiger/find_word_game) | 최신: 오늘 점검 보고서가 이미 최신 | 사용 기술에 맞는 .gitignore 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 난이도와 제한 시간 단계<br>사용자 진행 상황 저장<br>키보드·스크린리더 접근성 | 대용량 파일 또는 Git LFS 검토: filtered_noun_list.txt (19.2 MB) |
 | [github-repository-maintenance](https://github.com/alswhitetiger/github-repository-maintenance) | 최신화 완료: 저장소 검토 문서와 전체 요약 보고서로 갱신 | 핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 이전 점검 대비 변화만 알림<br>GitHub API 한도 및 실패 저장소 표시<br>저장소별 권장사항 해결 상태 추적 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [LLM-game](https://github.com/alswhitetiger/LLM-game) | 최신: 오늘 점검 보고서가 이미 최신 | 사용 기술에 맞는 .gitignore 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 게임 진행 저장·불러오기와 분기 기록<br>모델 호출 비용·속도 제한 설정<br>유해 콘텐츠 필터와 연령별 안전 설정 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
-| [mingyun-portfolio](https://github.com/alswhitetiger/mingyun-portfolio) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | README에 목적, 설치 방법, 실행 예시 추가<br>사용 기술에 맞는 .gitignore 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 프로젝트 기술·역할 필터<br>모바일 성능 및 접근성 점검<br>연락 양식 스팸 방지 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
+| [mingyun-portfolio](https://github.com/alswhitetiger/mingyun-portfolio) | 최신: 오늘 점검 보고서가 이미 최신 | README에 목적, 설치 방법, 실행 예시 추가<br>사용 기술에 맞는 .gitignore 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 프로젝트 기술·역할 필터<br>모바일 성능 및 접근성 점검<br>연락 양식 스팸 방지 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [My-Emotional-Analysis-Model](https://github.com/alswhitetiger/My-Emotional-Analysis-Model) | 최신: 오늘 점검 보고서가 이미 최신 | 사용 기술에 맞는 .gitignore 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 모델 카드와 데이터 사용 범위 문서화<br>정확도·편향 평가 리포트<br>예측 신뢰도와 오분류 사례 화면 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [OpenMontage](https://github.com/alswhitetiger/OpenMontage) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
 | [pm-skills](https://github.com/alswhitetiger/pm-skills) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
