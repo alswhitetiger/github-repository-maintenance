@@ -130,13 +130,13 @@ function Get-RepositoryAnalysis {
     if ($trackedEnv.Count -gt 0) { $cleanup.Add("비밀정보 위험: 추적 중인 환경 파일 $($trackedEnv -join ', ')") }
     $generated = @($filePaths | Where-Object { $_ -match '(^|/)(node_modules|__pycache__|\.venv|venv|dist|build|coverage|\.cache)/' } | Select-Object -First 8)
     if ($generated.Count -gt 0) { $cleanup.Add("생성물 추적 여부 검토: $($generated -join ', ')") }
-    $backups = @($filePaths | Where-Object { $_ -match '(backup|백업|copy|복사본|\.bak$|\.old$|~$)' } | Select-Object -First 8)
+    $backups = @($filePaths | Where-Object { $_ -match '(^|/)(backups?|old|archive|temp|tmp|복사본)(/|$)|(_backup|-backup|_old|-old| copy)(\.|$)|\.(bak|old|tmp)$|~$' } | Select-Object -First 8)
     if ($backups.Count -gt 0) { $cleanup.Add("백업·사본 정리 후보: $($backups -join ', ')") }
     $runtimeData = @($filePaths | Where-Object { $_ -match '\.(log|sqlite|sqlite3|db)$' } | Select-Object -First 8)
     if ($runtimeData.Count -gt 0) { $cleanup.Add("실행 데이터의 Git 추적 필요성 검토: $($runtimeData -join ', ')") }
     $largeFiles = @($fileEntries | Where-Object { $_.size -and [int64]$_.size -ge 10485760 } | ForEach-Object { "$($_.path) ($([math]::Round([int64]$_.size / 1MB, 1)) MB)" } | Select-Object -First 8)
     if ($largeFiles.Count -gt 0) { $cleanup.Add("대용량 파일 또는 Git LFS 검토: $($largeFiles -join ', ')") }
-    $lockFiles = @($lowerPaths | Where-Object { $_ -match '(^|/)(package-lock\.json|yarn\.lock|pnpm-lock\.yaml)$' })
+    $lockFiles = @($lowerPaths | Where-Object { $_ -in @('package-lock.json', 'yarn.lock', 'pnpm-lock.yaml') })
     if ($lockFiles.Count -gt 1) { $cleanup.Add("JavaScript 패키지 잠금 파일을 하나로 통일: $($lockFiles -join ', ')") }
     if ($cleanup.Count -eq 0) { $cleanup.Add('파일명 기준으로 명확한 불필요 항목은 발견되지 않음') }
 
