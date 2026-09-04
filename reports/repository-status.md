@@ -1,15 +1,16 @@
 # GitHub 공개 저장소 유지관리 결과
 
-점검일: 2026-09-03 (Asia/Seoul)
+점검일: 2026-09-04 (Asia/Seoul)
 
-- 본인 소유 저장소: 33개
-- 최신화 완료: 29개
+- 본인 소유 저장소: 34개
+- 최신화 완료: 30개
 - 실패: 0개
 
 | 저장소 | 처리 결과 | 필요한 부분 | 추가 기능 제안 | 정리 후보 |
 |---|---|---|---|---|
 | [ai-dept-meeting](https://github.com/alswhitetiger/ai-dept-meeting) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 사용 기술에 맞는 .gitignore 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 회의 안건 템플릿과 참석자별 액션 아이템 관리<br>캘린더 연동 및 마감 알림<br>회의 결과 PDF·Markdown 내보내기 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [AI-Storyteller-Text-Adventure](https://github.com/alswhitetiger/AI-Storyteller-Text-Adventure) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 사용 기술에 맞는 .gitignore 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 게임 진행 저장·불러오기와 분기 기록<br>모델 호출 비용·속도 제한 설정<br>유해 콘텐츠 필터와 연령별 안전 설정 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
+| [ai-visibility-check](https://github.com/alswhitetiger/ai-visibility-check) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 핵심 기능을 보호하는 최소 자동 테스트 추가<br>의존성 보안 업데이트 자동화 검토 | 핵심 사용 시나리오 자동 테스트<br>변경 이력과 로드맵 문서<br>오류 진단을 위한 구조화 로그 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [Code-Horizon-team](https://github.com/alswhitetiger/Code-Horizon-team) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택<br>의존성 보안 업데이트 자동화 검토 | GitHub 이슈·마일스톤 연동<br>배포 미리보기 링크<br>핵심 사용자 흐름 자동 테스트 | 비밀정보 위험: 추적 중인 환경 파일 edulink-ai/frontend/.env.production |
 | [EDA_MINI_1TEAM](https://github.com/alswhitetiger/EDA_MINI_1TEAM) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
 | [eda_practice](https://github.com/alswhitetiger/eda_practice) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
