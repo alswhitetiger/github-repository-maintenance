@@ -1,10 +1,10 @@
 # GitHub 공개 저장소 유지관리 결과
 
-점검일: 2026-11-03 (Asia/Seoul)
+점검일: 2026-11-05 (Asia/Seoul)
 
 - 본인 소유 저장소: 39개
-- 최신화 완료: 35개
-- 실패: 0개
+- 최신화 완료: 34개
+- 실패: 1개
 
 | 저장소 | 처리 결과 | 필요한 부분 | 추가 기능 제안 | 정리 후보 |
 |---|---|---|---|---|
@@ -22,7 +22,7 @@
 | [OpenMontage](https://github.com/alswhitetiger/OpenMontage) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
 | [pm-skills](https://github.com/alswhitetiger/pm-skills) | 동기화: 업스트림과 동기화 완료(포크라 잔디 집계 제외) |  |  |  |
 | [portfolio](https://github.com/alswhitetiger/portfolio) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | README에 목적, 설치 방법, 실행 예시 추가<br>사용 기술에 맞는 .gitignore 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 프로젝트 기술·역할 필터<br>모바일 성능 및 접근성 점검<br>연락 양식 스팸 방지 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
-| [shared-work-cloud-demo](https://github.com/alswhitetiger/shared-work-cloud-demo) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 사용 기술에 맞는 .gitignore 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 핵심 사용 시나리오 자동 테스트<br>변경 이력과 로드맵 문서<br>오류 진단을 위한 구조화 로그 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
+| [shared-work-cloud-demo](https://github.com/alswhitetiger/shared-work-cloud-demo) | 실패: HTTP 503 |  |  |  |
 | [uncles-homepage](https://github.com/alswhitetiger/uncles-homepage) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | README에 목적, 설치 방법, 실행 예시 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택<br>의존성 보안 업데이트 자동화 검토 | 핵심 사용 시나리오 자동 테스트<br>변경 이력과 로드맵 문서<br>오류 진단을 위한 구조화 로그 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 | [Voice-Chat-Bot-Game](https://github.com/alswhitetiger/Voice-Chat-Bot-Game) | 최신화 완료: REPOSITORY_REVIEW.md 갱신 및 기본 브랜치 커밋 | 사용 기술에 맞는 .gitignore 추가<br>핵심 기능을 보호하는 최소 자동 테스트 추가<br>테스트·문서 검사용 CI 워크플로 추가<br>공개 사용 범위를 명확히 하는 라이선스 선택 | 자막과 음성 접근성 설정<br>연결 끊김 자동 복구<br>응답 지연 진단 화면 | 파일명 기준으로 명확한 불필요 항목은 발견되지 않음 |
 
